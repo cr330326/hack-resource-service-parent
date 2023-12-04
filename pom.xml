@@ -1,0 +1,286 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.maezia.hack.resource</groupId>
+    <artifactId>hack-resource-service-parent</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <!-- submodules start -->
+    <modules>
+        <module>hack-resource-service-common</module>
+        <module>hack-resource-service-core</module>
+    </modules>
+    <!-- submodules end -->
+
+    <!-- properties start -->
+	<properties>
+        <!--编译相关-->
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+
+        <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
+        <sonar.version>3.6.0.1398</sonar.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <revision>1.0.0</revision>
+
+        <!--Test-->
+        <powermock.version>2.0.0</powermock.version>
+        <junit.version>4.13.1</junit.version>
+        <junit-jupiter.version>5.8.2</junit-jupiter.version>
+        <mockito.version>2.10.0</mockito.version>
+
+        <!--三方框架包-->
+        <spring-boot-dependencies.version>2.6.5</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>2021.0.1</spring-cloud-dependencies.version>
+
+        <!--三方工具包-->
+        <jacoco.version>0.8.5</jacoco.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <commons.io.version>2.11.0</commons.io.version>
+        <lombok.version>1.18.22</lombok.version>
+        <openfeign.version>3.1.1</openfeign.version>
+        <io.springfox.version>3.0.0</io.springfox.version>
+        <gson.version>2.9.0</gson.version>
+        <cn.hutool.version>5.7.13</cn.hutool.version>
+        <fastjson.version>1.2.83</fastjson.version>
+        <springdoc-openapi-ui.version>1.6.9</springdoc-openapi-ui.version>
+
+        <!--二方包相关-->
+        <ezia-common-component.verion>1.0.1</ezia-common-component.verion>
+        <ezia-common-exceptionhandler.version>1.1.0</ezia-common-exceptionhandler.version>
+        <ezia-common-errorcode.version>0.0.3</ezia-common-errorcode.version>
+        <ezia-common-requestheader.version>1.0.1</ezia-common-requestheader.version>
+        <ezia-common-requestlog.version>1.0.0-SNAPSHOT</ezia-common-requestlog.version>
+        <errorcode-service-tgsop-tgsop-service.version>f1-SNAPSHOT</errorcode-service-tgsop-tgsop-service.version>
+
+        <sonar.exclusions>
+            pom.xml
+        </sonar.exclusions>
+
+    </properties>
+    <!-- properties end -->
+
+    <dependencyManagement>
+
+        <dependencies>
+            <!-- Test -->
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-module-junit4</artifactId>
+                <version>${powermock.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-api-mockito2</artifactId>
+                <version>${powermock.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!--三方框架包-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--三方工具包-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${openfeign.version}</version>
+            </dependency>
+
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- io.springfox -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${io.springfox.version}</version>
+            </dependency>
+
+            <!-- Collection 增强Java集合框架 -->
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <!-- io常用工具类 -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${cn.hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc-openapi-ui.version}</version>
+            </dependency>
+
+            <!--二方包引入-->
+            <dependency>
+                <groupId>com.maezia.ezia.common</groupId>
+                <artifactId>ezia-common-exceptionhandler-starter</artifactId>
+                <version>${ezia-common-exceptionhandler.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.maezia.ezia.common</groupId>
+                <artifactId>ezia-common-result-define</artifactId>
+                <version>${ezia-common-component.verion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.maezia.ezia.common</groupId>
+                <artifactId>ezia-common-exception-define</artifactId>
+                <version>${ezia-common-component.verion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.maezia.ezia.common</groupId>
+                <artifactId>ezia-common-requestlog-starter</artifactId>
+                <version>${ezia-common-requestlog.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.maezia.ezia.common</groupId>
+                <artifactId>ezia-common-requestheader-starter</artifactId>
+                <version>${ezia-common-requestheader.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.tgsop.commonutil.errorcode</groupId>
+                <artifactId>errorcode-service-tgsop-tgsop-service</artifactId>
+                <version>${errorcode-service-tgsop-tgsop-service.version}</version>
+            </dependency>
+
+            <!--一方包引入-->
+             <dependency>
+                 <groupId>com.maezia.hack.resource</groupId>
+                 <artifactId>hack-resource-service-common</artifactId>
+                 <version>${revision}</version>
+             </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot-dependencies.version}</version>
+                    <configuration>
+                        <executable>true</executable>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- download dependency jar begin -->
+    <repositories>
+        <repository>
+            <id>jfrog-central</id>
+            <url>https://jfrog-prod.maezia.com:443/artifactory/ma-maven-develop-virtual</url>
+        </repository>
+        <repository>
+            <id>jfrog-snapshots</id>
+            <url>https://jfrog-prod.maezia.com:443/artifactory/ma-maven-develop-virtual</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>jfrog-releases</name>
+            <url>https://jfrog-prod.maezia.com:443/artifactory/ma-maven-develop-virtual</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>jfrog-snapshots</name>
+            <url>https://jfrog-prod.maezia.com:443/artifactory/ma-maven-develop-virtual</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <!-- download dependency jar end -->
+</project>

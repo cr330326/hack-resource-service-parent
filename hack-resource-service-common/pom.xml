@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>hack-resource-service-parent</artifactId>
+        <groupId>com.maezia.hack.resource</groupId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>hack-resource-service-common</artifactId>
+    <name>hack-resource-service-common</name>
+    <version>1.0.0</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <sonar.exclusions>
+            pom.xml
+        </sonar.exclusions>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <!-- io常用工具类 -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.maezia.ezia.common</groupId>
+            <artifactId>ezia-common-exceptionhandler-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.maezia.ezia.common</groupId>
+            <artifactId>ezia-common-result-define</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.maezia.ezia.common</groupId>
+            <artifactId>ezia-common-exception-define</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.maezia.ezia.common</groupId>
+            <artifactId>ezia-common-requestlog-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.maezia.ezia.common</groupId>
+            <artifactId>ezia-common-requestheader-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.tgsop.commonutil.errorcode</groupId>
+            <artifactId>errorcode-service-tgsop-tgsop-service</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>
