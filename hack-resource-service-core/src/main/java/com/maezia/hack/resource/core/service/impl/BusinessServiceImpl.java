@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -67,7 +68,7 @@ public class BusinessServiceImpl implements BusinessService {
     @Override
     public List<ProjectEntity> requestProjectList() {
         log.info("requestProjectList start");
-        return projectRepository.findAll();
+        return projectRepository.findAll(Sort.by(Sort.Direction.DESC,"id"));
     }
 
     /**
@@ -90,7 +91,7 @@ public class BusinessServiceImpl implements BusinessService {
     @Override
     public ProjectListVo requestProjectPageList(ProjectPageRequest projectPageRequest) {
         log.info("requestProjectPageList projectPageRequest:{}",projectPageRequest);
-        Pageable pageable = PageRequest.of(projectPageRequest.getOffset(), projectPageRequest.getSize());
+        Pageable pageable = PageRequest.of(projectPageRequest.getOffset(), projectPageRequest.getSize(), Sort.by(Sort.Direction.DESC,"id"));
         Page<ProjectEntity> page = projectRepository.findAll(pageable);
         List<ProjectEntity> projectEntityList = page.getContent();
 
