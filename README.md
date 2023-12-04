@@ -1,9 +1,6 @@
 
 DEVOPS GitRepo Template:devops-temp-springboot2.0-parent
 
-————————————*————————————*————————————*————————————*————————————
-template link：https://gitlab-rd0.maezia.com/devops/template/devops-template-springboottwo-parent
-
 模板类型：devops-temp-springboot2.0-parent
 
 适用项目：java springboot2.0 父子工程项目
