@@ -64,6 +64,7 @@ public interface IBusinessService {
      */
     @Operation(summary = "RM0001 上传项目", method = "DELETE")
     @DeleteMapping("/hack/api/v1/project/delete/{id}")
+    @CrossOrigin
     Result<OperateResponseDto> deleteProjectById(@PathVariable("id") int id);
 
 }
