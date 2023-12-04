@@ -57,4 +57,13 @@ public interface IBusinessService {
     @PostMapping("/hack/api/v1/project/page/list")
     Result<ProjectListVo> getProjectPageList(@RequestBody ProjectPageRequest projectPageRequest);
 
+    /**
+     * RM0005 删除项目
+     * @param id
+     * @return
+     */
+    @Operation(summary = "RM0001 上传项目", method = "DELETE")
+    @DeleteMapping("/hack/api/v1/project/delete/{id}")
+    Result<OperateResponseDto> deleteProjectById(@PathVariable("id") int id);
+
 }

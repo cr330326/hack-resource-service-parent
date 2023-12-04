@@ -46,4 +46,12 @@ public interface BusinessService {
      * @return
      */
     ProjectListVo requestProjectPageList(ProjectPageRequest projectPageRequest);
+
+    /**
+     * 删除项目
+     *
+     * @param id
+     * @return
+     */
+    OperateResponseDto requestDeleteProject(int id);
 }

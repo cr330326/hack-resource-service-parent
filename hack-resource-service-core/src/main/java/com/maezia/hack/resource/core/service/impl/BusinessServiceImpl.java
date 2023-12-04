@@ -122,4 +122,17 @@ public class BusinessServiceImpl implements BusinessService {
         log.info("requestProjectPageList projectListVo:{}",projectListVo);
         return projectListVo;
     }
+
+    /**
+     * 删除项目
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public OperateResponseDto requestDeleteProject(int id) {
+        log.info("requestDeleteProject id:{}",id);
+        projectRepository.deleteById(Long.valueOf(id));
+        return OperateResponseDto.builder().requestId(String.valueOf(System.currentTimeMillis())).build();
+    }
 }

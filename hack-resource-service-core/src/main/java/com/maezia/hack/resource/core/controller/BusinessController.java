@@ -66,4 +66,12 @@ public class BusinessController implements IBusinessService {
         return Result.success(businessService.requestProjectPageList(projectPageRequest));
     }
 
+    /**
+     * RM0005 删除项目
+     * @param id
+     */
+    @Override
+    public Result<OperateResponseDto> deleteProjectById(int id) {
+        return Result.success(businessService.requestDeleteProject(id));
+    }
 }
